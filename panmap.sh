@@ -12,3 +12,4 @@ do
 done
 
 python3 add_alignment_core.py -r reference.fna -g reference.gff -c LT571449
+
