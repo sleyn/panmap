@@ -11,4 +11,4 @@ do
     rm $i.filter
 done
 
-python3 add_alignment_core.py -r reference.fna -g reference.gff -c $1
+python3 add_alignment_core.py -r reference.fna -g reference.gff -c $1 -t $2
