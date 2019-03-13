@@ -12,5 +12,3 @@ do
 done
 
 python3 add_alignment_core.py -r reference.fna -g reference.gff -c LT571449
-run_gubbins.py -p gubbins --verbose --threads 16 alignment.aln
-iqtree -s gubbins.filtered_polymorphic_sites.fasta -m MFP -nt AUTO -bb 1000
