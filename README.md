@@ -1,6 +1,12 @@
 # panmap
 
-**panmap** is a wrapper for nucmer that can create multifasta of whole genome alignment by mapping multiple close related genomes on a reference.
+**panmap** is a wrapper for nucmer that can create multifasta of whole genome alignment by mapping multiple close related genomes on a reference. panmap could make core genome alignment by filtering genome regions with gap fraction above threshold. To create alignment panmap:
+1. Searchs SNPs between query and refrence genomes with nucmer.
+2. Searchs which parts of the reference genome that are missing in the query genome.
+3. Incorporates differences into the reference nucleotide sequence.
+4. For each genomic region (continious region of the genome with the same annotation based on GFF file) panmap calculates if the region should be keept for core or removed. This is desided by two steps:
+    1. For each position if fraction of gaps is greater than a threshold, then position considered as a gapped.
+    2. For all positions in a region if fraction of gapped positions is greater that a threshold than region is a subject for removal.
 
 ## Installation
 
@@ -55,5 +61,5 @@ genome_list.txt     # genomes IDs (names of fna files witout extension) - made f
 
 Run *panmap.sh* with the name of refeence contig.
 ```
-./panmap.sh <Reference contig name>
+./panmap.sh <Reference contig name> <Threshold>
 ```
