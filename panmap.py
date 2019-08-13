@@ -20,6 +20,7 @@ for opt, arg in opts:
     elif opt == '-t':
     	threshold = arg
 
+print('Start generating alignment')
 aln = open("alignment.aln", 'w')     # output alignment
 region_file = open("regions.txt", 'w')      # region was taken for alignment or not
 
@@ -108,3 +109,5 @@ for j in range(int(number_of_genomes)):
     aln.write('\n'.join(new_fasta_str)+"\n")
 
 aln.close()
+
+print('Done')
