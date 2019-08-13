@@ -18,7 +18,7 @@ for opt, arg in opts:
     elif opt == '-c':
         template_contig = arg
     elif opt == '-t':
-    	threshold = arg
+    	threshold = float(arg)
 
 print('Start generating alignment')
 aln = open("alignment.aln", 'w')     # output alignment
@@ -78,7 +78,7 @@ for snp_file_name in snp_files:
 
 alignment_array = alignment_array[1:,:]
 
-for locus, params in ref_gff.ann_pos.items():
+for locus, params in ref_gff.ann_pos[template_contig].items():
     print("Checking locus " + ' '.join([str(x) for x in params]))
     if params[1] != template_contig:
         continue
