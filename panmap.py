@@ -27,6 +27,8 @@ region_file = open("regions.txt", 'w')      # region was taken for alignment or 
 #read reference
 ref = open(reference_fasta,'r')         # read reference DNA fasta
 ref_gff = gff.gff(reference_gff)        # make class for gff file of the reference
+ref_gff.readgff()
+ref_gff.pos_to_ann()
 ref_content = ref.read().splitlines()
 fasta = ''.join(ref_content[1:])
 fasta = list(fasta)
